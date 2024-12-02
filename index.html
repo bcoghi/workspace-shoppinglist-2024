@@ -37,7 +37,7 @@
   <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
   <script>
-    const firebaseConfig = {
+    const firebaseConfig2 = {
       apiKey: "AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM",
       authDomain: "grocerylist-91956.firebaseapp.com",
       databaseURL: "https://grocerylist-91956.firebaseio.com",
@@ -47,13 +47,34 @@
       appId: "1:813812426276:web:93e5897af12892ff78dab1",
       measurementId: "G-VZ83BTR72T"
     }; 
+    const firebaseConfig = {
+      apiKey: "AIzaSyAGbDmVD97DjOClCMCMBqAVFznLLiOekCM",
+      authDomain: "csci225-practice.firebaseapp.com",
+      projectId: "csci225-practice",
+      storageBucket: "csci225-practice.firebasestorage.app",
+      messagingSenderId: "772137804732",
+      appId: "1:772137804732:web:03f14c44eb2b40764001b9"
+    };
+
     // Initialize Firebase
       const firebaseApp = firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
       const auth = firebaseApp.auth();
 
     // Save the list to database
-
+    $('#save').click(function(){
+      $(this).text("saving...");
+      var value = $(this).text();
+      db.collection('grocerylist').add({item:value});
+    });
+    data = {
+      beans: "baked",
+      flag: "checked",
+      level: 2,
+      nothing: null,
+      beans: ["baked", "beans", "bacon"]
+    }
+    //db.collection('grocerylist').add(data); //{json format}
 
   </script>
 
